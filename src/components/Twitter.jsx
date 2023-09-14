@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './twitter.css'
 
 
-function Twitter({formatUserName,userName,children,initialIsFollowing}) {
+function Twitter({userName,children,initialIsFollowing}) {
 
     const [isFollowing,setIsFollowing] = useState(initialIsFollowing)
 
@@ -23,12 +23,13 @@ function Twitter({formatUserName,userName,children,initialIsFollowing}) {
             src={img}/>
             <div className='tw-followCard-info'>
                 <strong>{children}</strong>
-                <span className='tw-followCard-info-span'>{formatUserName(userName)}</span>
+                <span className='tw-followCard-info-span'>@{userName}</span>
             </div>
         </header>
         <aside>
             <button className={buttonClassName} onClick={(handleClick)}>
-                {text}
+            <span className='tw-followCard-text'> {text}</span>
+                <span className='tw-followCard-stopFollow'>Dejar de seguir</span>
             </button>
         </aside>
     </article>
